@@ -36,8 +36,8 @@ if [ "$CHOICE" = "ask" ]; then
     read -p "Enter the number corresponding to your choice: " CHOICE
 fi;
 
-./install.sh
-./start.sh
+#./install.sh
+#./start.sh
 
 benchmark() {
     local size=$1
@@ -52,7 +52,7 @@ benchmark() {
     ./total_size.sh "bluesky_${size}m_${suffix}" bluesky | tee "${OUTPUT_PREFIX}_bluesky_${size}m_${suffix}.total_size"
     ./count.sh "bluesky_${size}m_${suffix}" bluesky | tee "${OUTPUT_PREFIX}_bluesky_${size}m_${suffix}.count"
     ./benchmark.sh "bluesky_${size}m_${suffix}" "${OUTPUT_PREFIX}_bluesky_${size}m_${suffix}.results_runtime" "queries_${suffix}.sql"
-    ./drop_table.sh "bluesky_${size}m_${suffix}" bluesky
+    #./drop_table.sh "bluesky_${size}m_${suffix}" bluesky
 }
 
 case $CHOICE in
@@ -68,8 +68,6 @@ case $CHOICE in
         ;;
     4)
         benchmark 1000 default
-        benchmark 1000 default_with_index
-        benchmark 1000 materialized
         ;;
     5)
         benchmark 1 default
@@ -81,6 +79,7 @@ case $CHOICE in
         benchmark 100 default
         benchmark 100 default_with_index
         benchmark 100 materialized
+        benchmark 1000 default
         benchmark 1000 default_with_index
         benchmark 1000 materialized
         ;;
@@ -91,5 +90,5 @@ case $CHOICE in
         ;;
 esac
 
-./stop.sh
-./uninstall.sh
+#./stop.sh
+#./uninstall.sh

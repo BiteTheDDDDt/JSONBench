@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wget https://apache-doris-releases.oss-accelerate.aliyuncs.com/${DORIS_FULL_NAME}.tar.gz
+wget --timestamping https://apache-doris-releases.oss-accelerate.aliyuncs.com/${DORIS_FULL_NAME}.tar.gz
 mkdir ${DORIS_FULL_NAME}
 tar -xvf ${DORIS_FULL_NAME}.tar.gz --strip-components 1 -C ${DORIS_FULL_NAME}
 

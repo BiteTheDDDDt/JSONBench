@@ -29,3 +29,6 @@ mysql -P 9030 -h 127.0.0.1 -u root $DB_NAME < "$DDL_FILE"
 
 echo "Load data"
 ./load_data.sh "$DATA_DIRECTORY" "$DB_NAME" "$TABLE_NAME" "$NUM_FILES" "$SUCCESS_LOG" "$ERROR_LOG"
+
+echo "Sleep 120 sec to collect data size"
+sleep 120s
